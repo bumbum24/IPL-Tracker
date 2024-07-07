@@ -1,0 +1,26 @@
+.MatchDetailCard{
+    display:grid;
+    grid-template-columns:1fr 1fr ;
+    
+        
+    .match-info, .match-result{
+        margin-top: 10px;
+    }
+
+    .additional-info{
+        text-align: right;
+        & > p{
+            margin-bottom: 20px;
+        };
+    }
+}
+
+.won-card{
+    background-color: #69eb768f;
+    color: white;
+}
+
+.lost-card{
+    background-color: #eb736aa6;
+    color: white;
+}
