@@ -11,12 +11,12 @@ export const TeamPage = () => {
   const {teamName} = useParams();
   useEffect(
     () => {
-      const fetchMatches = async () => {
-        const response = await fetch(`http://localhost:8080/team/${teamName}`);
+      const fetchTeam = async () => {
+        const response = await fetch(`/team/${teamName}`);
         const data = await response.json();
         setTeam(data);
       };
-      fetchMatches();
+      fetchTeam();
     }, [teamName]
   );
 
@@ -36,7 +36,7 @@ export const TeamPage = () => {
       <div className='match-detail-section'>
       <h3>Latest Match</h3>
       <MatchDetailCard teamName={team.teamName} match={team.matches[0]} /></div>
-      {team.matches.slice(1).map(match => <MatchSmallCard teamName={team.teamName} match={match}/>)}
+      {team.matches.slice(1).map(match => <MatchSmallCard key={match.id} teamName={team.teamName} match={match}/>)}
       <div className='more-tag'>
       <Link to={`/teams/${teamName}/matches/${process.env.REACT_APP_DATA_END_YEAR}`}>More {'>>'}</Link>
       </div>
